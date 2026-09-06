@@ -1,206 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow" />
-  <meta name="description" content="Amit Akhil — final-year CSE student, aspiring MLOps engineer, and systems developer building operating systems, AI systems, and cloud-native projects." />
-  <meta name="author" content="Amit Akhil" />
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="canonical" href="https://amitakhil.me/" />
-  <title>Amit Akhil | Systems & MLOps Engineer</title>
-  <style>
-    :root {
-      --bg: #0b1020;
-      --panel: #121a2b;
-      --panel-2: #1b2740;
-      --text: #e5edf8;
-      --muted: #a7b5cf;
-      --accent: #7dd3fc;
-      --accent-2: #7c3aed;
-      --line: rgba(148, 163, 184, 0.25);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amit Kumar</title>
+<meta name="description" content="Amit Kumar — Final Year CSE Student, aspiring MLOps Engineer, and systems developer. Creator of MyKernel, ThreatVision AI, Searcher Browser, and StepDistanceCalculator.">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --ink-soft:#4a4a4a;
+    --rule:#d9d9d9;
+    --rule-strong:#111111;
+    --link:#0645ad;
+    --link-visited:#0b0080;
+    --serif:'Georgia','Iowan Old Style','Palatino Linotype','Book Antiqua',serif;
+    --sans:'Helvetica Neue',Arial,sans-serif;
+    --mono:'Courier New',monospace;
+    --maxw:850px;
+    --toc-w:230px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--link);text-decoration:none;border-bottom:1px solid rgba(6,69,173,0.35);}
+  a:hover{border-bottom-color:var(--link);}
+  a:visited{color:var(--link-visited);}
+  code{font-family:var(--mono);font-size:0.85em;background:#f5f5f5;padding:0.1em 0.35em;border:1px solid var(--rule);}
+
+  .masthead{
+    border-bottom:1px solid var(--rule-strong);
+    padding:2.5rem 1.5rem 1.5rem;
+  }
+  .masthead-inner{
+    max-width:calc(var(--maxw) + var(--toc-w) + 3rem);
+    margin:0 auto;
+  }
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:0.6rem;
+  }
+  h1.name{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:2.6rem;
+    letter-spacing:-0.01em;
+    margin:0 0 0.35rem;
+  }
+  .title-line{
+    font-family:var(--sans);
+    font-size:1.02rem;
+    color:var(--ink-soft);
+  }
+  .pronoun{
+    font-family:var(--sans);
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    margin-top:0.3rem;
+  }
+
+  .layout{
+    max-width:calc(var(--maxw) + var(--toc-w) + 3rem);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:var(--toc-w) 1fr;
+    gap:3rem;
+    padding:2.5rem 1.5rem 5rem;
+    align-items:start;
+  }
+  nav.toc{
+    position:sticky;
+    top:2rem;
+    font-family:var(--sans);
+    font-size:0.86rem;
+    border:1px solid var(--rule);
+    padding:1.1rem 1.2rem;
+    max-height:calc(100vh - 4rem);
+    overflow-y:auto;
+  }
+  nav.toc .toc-title{
+    font-weight:700;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:0.7rem;
+  }
+  nav.toc ol{
+    list-style:none;
+    margin:0;padding:0;
+    counter-reset:toc;
+  }
+  nav.toc li{
+    counter-increment:toc;
+    margin-bottom:0.45rem;
+  }
+  nav.toc a{
+    border-bottom:none;
+    color:var(--ink);
+    display:block;
+  }
+  nav.toc a::before{
+    content:counter(toc)". ";
+    color:var(--ink-soft);
+  }
+  nav.toc a:hover, nav.toc a.active{
+    color:var(--link);
+  }
+
+  main{min-width:0;}
+
+  section{
+    margin-bottom:2.6rem;
+    border-top:1px solid var(--rule);
+    padding-top:1.6rem;
+  }
+  section:first-of-type{border-top:none;padding-top:0;}
+
+  h2{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:1.5rem;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:0.4rem;
+    margin:0 0 1rem;
+  }
+  h3{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.98rem;
+    margin:1.3rem 0 0.4rem;
+  }
+  h4{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.86rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+    margin:1rem 0 0.35rem;
+  }
+  p{margin:0 0 1rem;color:var(--ink);}
+  .lede{font-size:1.05rem;}
+
+  .infobox{
+    float:right;
+    width:270px;
+    margin:0 0 1.5rem 2rem;
+    border:1px solid var(--rule);
+    font-family:var(--sans);
+    font-size:0.85rem;
+  }
+  .infobox .infobox-header{
+    background:#f5f5f5;
+    text-align:center;
+    font-family:var(--serif);
+    font-size:1.05rem;
+    padding:0.6rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .infobox dl{margin:0;}
+  .infobox .row{
+    display:grid;
+    grid-template-columns:38% 62%;
+    border-bottom:1px solid var(--rule);
+  }
+  .infobox .row:last-child{border-bottom:none;}
+  .infobox dt{
+    padding:0.5rem 0.6rem;
+    background:#fafafa;
+    color:var(--ink-soft);
+    font-weight:600;
+    border-right:1px solid var(--rule);
+  }
+  .infobox dd{
+    margin:0;
+    padding:0.5rem 0.6rem;
+  }
+  .infobox ul{margin:0;padding-left:1.1rem;}
+
+  @media (max-width:640px){
+    .infobox{float:none;width:100%;margin:0 0 1.5rem;}
+  }
+
+  .skill-block{margin-bottom:1.1rem;}
+  .skill-block .label{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.86rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--ink-soft);
+    margin-bottom:0.25rem;
+  }
+  .skill-list{font-family:var(--serif);}
+
+  table.plain{
+    width:100%;
+    border-collapse:collapse;
+    font-family:var(--sans);
+    font-size:0.88rem;
+    margin-bottom:1rem;
+  }
+  table.plain th, table.plain td{
+    text-align:left;
+    padding:0.55rem 0.7rem;
+    border:1px solid var(--rule);
+    vertical-align:top;
+  }
+  table.plain th{
+    background:#f5f5f5;
+    font-weight:700;
+  }
+  table.plain.kv th{width:190px;}
+
+  .note{
+    font-family:var(--sans);
+    font-size:0.86rem;
+    color:var(--ink-soft);
+    border-left:2px solid var(--rule);
+    padding:0.5rem 0 0.5rem 0.9rem;
+    margin:0.8rem 0;
+  }
+
+  .project{
+    border:1px solid var(--rule);
+    padding:1.2rem 1.4rem 1.4rem;
+    margin-bottom:1.4rem;
+  }
+  .project h3{margin-top:0;font-size:1.1rem;}
+  .project .meta{
+    font-family:var(--sans);
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    margin-bottom:0.8rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.4rem 0.9rem;
+  }
+  .project .meta span{white-space:nowrap;}
+  .project .links{
+    font-family:var(--sans);
+    font-size:0.86rem;
+    margin-top:0.8rem;
+    display:flex;
+    gap:1.2rem;
+    flex-wrap:wrap;
+  }
+  .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.4rem;
+    margin:0.6rem 0 0.9rem;
+  }
+  .tag{
+    font-family:var(--sans);
+    font-size:0.76rem;
+    border:1px solid var(--rule);
+    padding:0.2rem 0.55rem;
+    color:var(--ink-soft);
+  }
+
+  ul.plain-list{margin:0 0 1rem;padding-left:1.3rem;}
+  ul.plain-list li{margin-bottom:0.35rem;}
+  ul.tight{margin:0 0 0.8rem;padding-left:1.3rem;}
+  ul.tight li{margin-bottom:0.2rem;}
+
+  .contact-list{
+    font-family:var(--sans);
+    font-size:0.95rem;
+    list-style:none;
+    padding:0;margin:0;
+  }
+  .contact-list li{
+    display:flex;
+    gap:0.7rem;
+    padding:0.55rem 0;
+    border-bottom:1px solid var(--rule);
+    flex-wrap:wrap;
+  }
+  .contact-list li:last-child{border-bottom:none;}
+  .contact-list .k{
+    width:110px;
+    flex-shrink:0;
+    color:var(--ink-soft);
+    font-weight:700;
+  }
+
+  .btn-row{margin-top:1rem;display:flex;gap:0.8rem;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    font-family:var(--sans);
+    font-size:0.86rem;
+    font-weight:700;
+    padding:0.6rem 1.1rem;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    border-bottom:1px solid var(--ink);
+  }
+  .btn:hover{background:var(--ink);color:var(--bg);}
+
+  blockquote{
+    margin:0 0 1rem;
+    padding:0.2rem 0 0.2rem 1rem;
+    border-left:2px solid var(--rule-strong);
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  footer{
+    border-top:1px solid var(--rule-strong);
+    text-align:center;
+    font-family:var(--sans);
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    padding:2rem 1.5rem 3rem;
+  }
+
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;}
+    nav.toc{
+      position:relative;top:0;
+      max-height:none;
     }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #0b1020 0%, #111827 100%);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-    }
-
-    .hero {
-      border: 1px solid var(--line);
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(10px);
-      border-radius: 18px;
-      padding: 34px 28px;
-      margin-bottom: 26px;
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.35);
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-      margin-top: 26px;
-    }
-
-    .card {
-      background: rgba(18, 26, 43, 0.9);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 22px 22px;
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: 1.3rem;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      margin: 0 0 14px;
-      color: var(--text);
-    }
-
-    .muted { color: var(--muted); }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    li { margin-bottom: 8px; }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .badge {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(124, 58, 237, 0.08);
-      color: var(--text);
-      padding: 7px 12px;
-      font-size: 0.8rem;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .button {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #06101d;
-      padding: 10px 16px;
-      border-radius: 10px;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    @media (max-width: 720px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header class="hero">
-      <div class="eyebrow">Systems • AI • MLOps</div>
-      <h1>Amit Akhil</h1>
-      <p class="subtitle">Final-year CSE student • Aspiring MLOps Engineer • Systems developer</p>
-      <div class="badge-row">
-        <span class="badge">Operating Systems</span>
-        <span class="badge">Machine Learning</span>
-        <span class="badge">DevOps</span>
-        <span class="badge">Cloud</span>
-        <span class="badge">Blockchain</span>
-      </div>
-    </header>
 
-    <div class="grid">
-      <section class="card">
-        <h2>About</h2>
-        <p>I’m Amit Akhil, a final-year Computer Science Engineering student focused on systems programming, machine learning, MLOps, and building software from the ground up.</p>
-        <p>I enjoy working on low-level engineering, automation, deployment pipelines, and AI systems that are reliable in real-world production environments.</p>
-        <div class="links">
-          <a class="button" href="https://github.com/Amit123103" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="button secondary" href="https://www.linkedin.com/in/amit-akhil/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-      </section>
-
-      <aside class="card">
-        <h2>Focus</h2>
-        <ul>
-          <li>Operating Systems & Kernel Development</li>
-          <li>Machine Learning & AI Systems</li>
-          <li>MLOps & CI/CD</li>
-          <li>Python, C, Linux, DevOps</li>
-        </ul>
-      </aside>
-    </div>
-
-    <section class="card" style="margin-top: 24px;">
-      <h2>Projects & Interests</h2>
-      <p class="muted">My work spans operating systems, AI projects, automation pipelines, and cloud-native engineering. I’m actively building practical systems that combine software fundamentals with modern deployment workflows.</p>
-      <p><strong>Key interests:</strong> kernel internals, cloud engineering, AI deployment, system design, productized engineering, and developer tooling.</p>
-    </section>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="eyebrow">Profile · Systems &amp; Machine Learning Engineering</div>
+    <h1 class="name">Amit Kumar</h1>
+    <div class="title-line">Final Year CSE Student · Aspiring MLOps Engineer · Creator of MyKernel</div>
+    <div class="pronoun">He/Him</div>
   </div>
+</header>
+
+<div class="layout">
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#about">About</a></li>
+      <li><a href="#biography">Biography</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Technical Skills</a></li>
+      <li><a href="#experience">Professional Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research &amp; Publications</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#opensource">Open Source Contributions</a></li>
+      <li><a href="#technologies">Technologies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="about">
+      <h2>About</h2>
+      <aside class="infobox">
+        <div class="infobox-header">Amit Kumar</div>
+        <dl>
+          <div class="row"><dt>Occupation</dt><dd>Final Year CSE Student; Aspiring MLOps Engineer</dd></div>
+          <div class="row"><dt>Education</dt><dd>B.Tech, Lovely Professional University (2023–2027)</dd></div>
+          <div class="row"><dt>Known for</dt><dd>MyKernel, ThreatVision AI, Searcher Browser, StepDistanceCalculator</dd></div>
+          <div class="row"><dt>Focus areas</dt><dd>Operating Systems, Machine Learning, MLOps, DevOps, Blockchain</dd></div>
+          <div class="row"><dt>Documentaion</dt><dd><a href="https://amit-github-seo.vercel.app" target="_blank" rel="noopener noreferrer">Documentaion</a></dd></div>
+          <div class="row"><dt>GitHub</dt><dd><a href="https://github.com/Amit123103" target="_blank" rel="noopener noreferrer">Amit123103</a></dd></div>
+          <div class="row"><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/amit-akhil/" target="_blank" rel="noopener noreferrer">amit-akhil</a></dd></div>
+          <div class="row"><dt>Portfolio</dt><dd><a href="https://amit123103.github.io/SmartPortfolio/" target="_blank" rel="noopener noreferrer">SmartPortfolio</a></dd></div>
+        </dl>
+      </aside>
+      <p class="lede">Amit Kumar is a final-year Computer Science Engineering student and systems-focused software developer whose work spans operating systems, machine learning, MLOps, DevOps, and blockchain. He describes his approach as "building systems from the kernel to the cloud" — reflected in a project portfolio that ranges from a hand-written 64-bit OS kernel to a computer-vision threat-detection framework and a Python-based desktop browser.</p>
+      <p>He is an aspiring MLOps Engineer who is actively seeking roles as a Software Engineer, Systems Software Engineer, Operating Systems Engineer, DevOps Engineer, or MLOps Engineer, with the stated goal of contributing to impactful engineering projects and continuing to grow alongside experienced engineers.</p>
+    </section>
+
+    <section id="biography">
+      <h2>Biography</h2>
+      <p>Amit Kumar is a final-year undergraduate in Computer Science Engineering with a stated passion for operating systems, systems programming, machine learning, MLOps, DevOps, and blockchain. He describes his interest as solving complex engineering problems by building software "from the ground up," and continuously studying how modern computing systems work at every layer, from kernel internals to cloud deployment.</p>
+      <p>His flagship project is <strong>MyKernel</strong>, a modular 64-bit x86_64 operating system kernel written from scratch in C and NASM assembly. Building it, in his own account, deepened his understanding of operating system internals, computer architecture, networking, memory management, and low-level software development. Alongside systems programming, he has been developing expertise in machine learning, Python, MLOps, Docker, Kubernetes, CI/CD, DevOps, and advanced configuration management, with an interest in designing scalable applications, automating deployment pipelines, containerizing workloads, and deploying AI systems reliably in production.</p>
+      <p>Beyond his engineering projects, Amit has contributed to academic research, co-authoring a conference paper on a hybrid attendance system that combines facial recognition and QR-code scanning, published in March 2026 (see <a href="#research">Research &amp; Publications</a>).</p>
+      <blockquote>"I believe the best way to learn is by building. Every project is an opportunity to deepen my technical knowledge, solve real-world problems, and create software that makes an impact."</blockquote>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <table class="plain kv">
+        <tr><th>Degree</th><td>Bachelor of Technology (B.Tech), Computer Science Engineering</td></tr>
+        <tr><th>Institution</th><td>Lovely Professional University</td></tr>
+        <tr><th>Duration</th><td>2023 – 2027</td></tr>
+        <tr><th>Status</th><td>Final year, currently pursuing</td></tr>
+      </table>
+      <p>Amit is in the final year of a four-year B.Tech program at Lovely Professional University. His coursework and independent project work have supported a self-directed specialization spanning operating systems, systems programming, machine learning, MLOps, DevOps, and blockchain.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+
+      <div class="skill-block">
+        <div class="label">Operating Systems &amp; Kernel Development</div>
+        <p class="skill-list">Kernel internals, boot protocols (Multiboot2), long-mode transition, GDT/IDT/TSS configuration, interrupt and exception handling.</p>
+      </div>
+
+      <div class="skill-block">
+        <div class="label">Programming Languages</div>
+        <p class="skill-list">C, C++, Python, NASM Assembly</p>
+      </div>
+
+      <div class="skill-block">
+        <div class="label">Systems &amp; Linux</div>
+        <p class="skill-list">Linux and low-level system programming, freestanding C development, memory management (physical and virtual), process scheduling and inter-process communication.</p>
+      </div>
+
+      <div class="skill-block">
+        <div class="label">Machine Learning &amp; MLOps</div>
+        <p class="skill-list">Machine learning fundamentals, MLOps workflows, and reliable production deployment of AI systems, including computer vision pipelines (object detection, multi-object tracking).</p>
+      </div>
+
+      <div class="skill-block">
+        <div class="label">DevOps &amp; Infrastructure</div>
+        <p class="skill-list">Docker, Kubernetes, CI/CD pipelines, DevOps practices, and advanced configuration management.</p>
+      </div>
+
+      <div class="skill-block">
+        <div class="label">Computer Networks</div>
+        <p class="skill-list">TCP/IP, UDP, DHCP, ICMP, and hands-on implementation of a full network stack (Ethernet, ARP, IPv4, TCP state machine) within MyKernel.</p>
+      </div>
+
+      <div class="skill-block">
+        <div class="label">Blockchain</div>
+        <p class="skill-list">Blockchain systems and decentralized application concepts.</p>
+      </div>
+
+      <div class="skill-block">
+        <div class="label">Tools &amp; Version Control</div>
+        <p class="skill-list">Git, GitHub, GRUB2, QEMU, PyInstaller, PyPI packaging</p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <p>Amit has not listed formal employment or internship history in the available source material. His current practical experience is demonstrated through independent, production-quality engineering projects — spanning a kernel built from scratch, a computer-vision framework, a desktop application, and two published open-source packages — rather than through a conventional employment record.</p>
+      <p>He is actively seeking his first professional role as a Software Engineer, Systems Software Engineer, Operating Systems Engineer, DevOps Engineer, or MLOps Engineer.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="project" id="proj-mykernel">
+        <h3>MyKernel — 64-Bit x86_64 Operating System Kernel</h3>
+        <div class="meta">
+          <span>License: MIT</span><span>Platform: x86_64</span><span>Languages: C 72.7% · Shell 7.4% · Makefile 7.3% · PowerShell 5.2% · Assembly 5% · Batchfile 1.9% · Linker Script 0.5%</span><span>Latest release: v1.0.6</span>
+        </div>
+        <p>A complete, educational, modular 64-bit operating system kernel built from scratch in C and NASM assembly for the x86_64 architecture. It boots into long mode via the Multiboot2 specification and is bootable through GRUB2.</p>
+        <div class="tag-row">
+          <span class="tag">Bootloader</span><span class="tag">Virtual Memory</span><span class="tag">Physical Page Allocation</span><span class="tag">Kernel Heap</span>
+          <span class="tag">Process Scheduling</span><span class="tag">IPC</span><span class="tag">VFS / FAT32</span><span class="tag">TCP/IP Stack</span>
+          <span class="tag">Device Drivers</span><span class="tag">Kernel Shell</span>
+        </div>
+        <h4>Key Features</h4>
+        <ul class="tight">
+          <li><strong>Boot &amp; CPU:</strong> Multiboot2-compliant bootloader, 64-bit long-mode trampoline, GDT, 64-bit IDT with all 256 vectors mapped, TSS, exception gate handlers for CPU faults (page fault, GPF, division by zero) and hardware IRQs.</li>
+          <li><strong>Memory management:</strong> a bitmap physical page allocator (PMM) at 4 KiB granularity, a 4-level paging virtual memory manager (PML4 → PDPT → PD → PT), and a kernel heap with <code>kmalloc</code>/<code>kfree</code>/<code>krealloc</code> supporting block splitting and merging.</li>
+          <li><strong>Processes &amp; IPC:</strong> context switching, a thread scheduler, spinlocks, mutexes, inter-process message queues, ring-buffer pipes, and shared memory.</li>
+          <li><strong>Filesystem:</strong> a Virtual File System abstraction with a FAT32 partition reader/driver and a log-structured JournalFS.</li>
+          <li><strong>Networking:</strong> a complete zero-copy stack — Ethernet frames, an ARP table, IPv4, ICMP echo (ping), UDP sockets, a TCP state machine (SYN/ACK/ESTABLISHED), and a DHCP client for IP address leasing.</li>
+          <li><strong>Drivers:</strong> VGA text (80×25) and graphics output, serial COM1 UART (115200 baud), an interrupt-driven PS/2 keyboard with modifier-key handling, a PIT timer at a 100 Hz tick rate, RTC, and PC speaker.</li>
+          <li><strong>Power &amp; security:</strong> ACPI power-off and reboot, SHA-256 and MD5 checksums, and access-control verifiers.</li>
+          <li><strong>Utilities:</strong> an interactive kernel shell CLI, a structured logger (<code>kprintf</code>), a stack-trace debugger, and a freestanding C standard library.</li>
+        </ul>
+        <h4>Challenges Solved</h4>
+        <p>The project required implementing, from first principles and without an underlying OS, the full stack a kernel normally depends on: transitioning the CPU into 64-bit long mode, building paging and heap allocation without a libc, writing interrupt-safe drivers, and implementing a TCP/IP network stack down to the Ethernet frame level — all validated through boot testing in QEMU across Windows, macOS, and Linux build environments.</p>
+        <div class="links">
+          <a href="https://github.com/Amit123103/Basic_kernel" target="_blank" rel="noopener noreferrer">GitHub repository →</a>
+          <a href="https://github.com/Amit123103/Basic_kernel/releases" target="_blank" rel="noopener noreferrer">Releases (latest: v1.0.6) →</a>
+        </div>
+      </div>
+
+      <div class="project" id="proj-threatvision">
+        <h3>ThreatVision AI</h3>
+        <div class="meta">
+          <span>Type: Open-source Python framework</span><span>Domain: Computer vision / physical security</span><span>Distribution: PyPI</span>
+        </div>
+        <p>An open-source, modular computer-vision framework for real-time threat detection, multi-object tracking, spatial analytics, and multi-channel incident response. It processes streaming video from live cameras, RTSP network streams, video files, or static images, and computes a calibrated threat score for human operator review rather than issuing absolute automated judgments.</p>
+        <div class="tag-row">
+          <span class="tag">Object Detection</span><span class="tag">Multi-Object Tracking</span><span class="tag">Pose Estimation</span>
+          <span class="tag">Threat Scoring Engine</span><span class="tag">REST API</span><span class="tag">WebSocket Streaming</span><span class="tag">Web Dashboard</span>
+        </div>
+        <h4>Key Features</h4>
+        <ul class="tight">
+          <li>A modular pipeline covering camera ingestion, object detection, multi-object tracking, behavior analysis, threat scoring, and human review, assembled from independently maintained detectors — person, vehicle, weapon-shape, fire/smoke, fall, and crowd density — combined behind a common interface.</li>
+          <li>A transparent, configurable threat-scoring engine that converts per-frame detections into zone- and time-aware incident scores, using temporal persistence checks and zone rules to reduce false-positive alert fatigue.</li>
+          <li>A web dashboard and command-center UI, plus a cloud REST API and WebSocket streaming interface for integration into external systems.</li>
+          <li>Combines single-stage detectors (YOLO-family) for real-time streaming inference with two-stage detectors (Faster R-CNN) for higher-accuracy offline re-verification of borderline incidents.</li>
+        </ul>
+        <h4>Challenges Solved</h4>
+        <p>The framework is designed as an operator-assistance tool rather than an autonomous decision-maker: detections return explicit confidence bounds and threat scores instead of absolute assertions, addressing alert fatigue, opaque decision logic, and vendor lock-in commonly found in closed, proprietary security appliances, while keeping every stage from detection to scoring inspectable and replaceable through a plugin system.</p>
+        <div class="links">
+          <a href="https://pypi.org/project/threatvision-ai/" target="_blank" rel="noopener noreferrer">PyPI package →</a>
+        </div>
+      </div>
+
+      <div class="project" id="proj-searcher">
+        <h3>Searcher Browser</h3>
+        <div class="meta">
+          <span>Type: Desktop application</span><span>Latest release: v1.4.0</span><span>Platforms: Windows · macOS · Linux · Mobile (PWA)</span>
+        </div>
+        <p>A modern, lightweight desktop web browser built from scratch in Python using the Chromium-based PyQt6-WebEngine rendering engine, packaged as a single portable executable requiring no installation.</p>
+        <div class="tag-row">
+          <span class="tag">Python 3.12+</span><span class="tag">PyQt6</span><span class="tag">PyQt6-WebEngine</span>
+          <span class="tag">SQLite</span><span class="tag">PyInstaller</span>
+        </div>
+        <h4>Key Features</h4>
+        <ul class="tight">
+          <li>A built-in AI Assistant that summarizes webpages, answers questions about the current page, generates study notes, and automatically groups tabs by topic.</li>
+          <li>A native ad blocker integrated into the network interceptor, a password manager, and an incognito mode that retains no history, cookies, or cache.</li>
+          <li>Offline mode with 500 MB of page caching, offline-aware address-bar search of local history and bookmarks, and a built-in offline mini-game.</li>
+          <li>Productivity features including a custom start page, full history and bookmarks, session restore, a download manager, light/dark theming, voice search, and support for multiple search engines (Google, Bing, DuckDuckGo, and others).</li>
+          <li>A mobile-view toggle for emulating responsive device environments during development and testing.</li>
+        </ul>
+        <h4>Challenges Solved</h4>
+        <p>The project packages a full Chromium-based browsing engine, local SQLite-backed data storage, and an AI assistant sidebar into a single cross-platform, no-install executable via PyInstaller, targeting Windows, macOS, Linux, and mobile (as an installable PWA).</p>
+        <div class="links">
+          <a href="https://github.com/Amit123103/Searcher_browser/releases/tag/v1.4.0" target="_blank" rel="noopener noreferrer">GitHub release v1.4.0 →</a>
+        </div>
+      </div>
+
+      <div class="project" id="proj-stepdistance">
+        <h3>StepDistanceCalculator</h3>
+        <div class="meta">
+          <span>Type: Open-source Python package</span><span>Distribution: PyPI</span><span>Design: Object-oriented</span>
+        </div>
+        <p>A professional, object-oriented Python package that converts physical distances into biomechanically accurate walking step counts, offered through both a high-level Python API and a command-line interface.</p>
+        <div class="tag-row">
+          <span class="tag">Biomechanical Estimation</span><span class="tag">CLI</span><span class="tag">Matplotlib</span><span class="tag">CSV/JSON/PDF Reports</span>
+        </div>
+        <h4>Key Features</h4>
+        <ul class="tight">
+          <li>Single- and multi-city/route step calculations, with exact and rounded step counts across multi-segment route chains.</li>
+          <li>Gender-based default step lengths (adult male 0.78 m, adult female 0.70 m, neutral fallback 0.74 m) and biomechanical height-based estimation using validated height-to-step ratios, plus support for custom stride lengths.</li>
+          <li>Activity pace modifiers for walking (1.00×), brisk walking (1.08×), jogging (1.25×), running (1.40×), and hilly/uphill terrain (0.90×).</li>
+          <li>Automatic unit conversion across meters, kilometers, miles, feet, centimeters, and inches.</li>
+          <li>A clean object-oriented architecture built around <code>Person</code>, <code>Location</code>, <code>Segment</code>, <code>Route</code>, <code>DistanceCalculator</code>, and <code>ReportGenerator</code> abstractions.</li>
+          <li>Report export in plain text, JSON, CSV, and formatted PDF, plus Matplotlib visualizations — a bar chart of segment steps, a pie chart of percentage distance contribution, and a line chart of cumulative steps across checkpoints.</li>
+          <li>An interactive terminal menu mode alongside the CLI, with complete input validation, a custom exception hierarchy, and structured logging.</li>
+        </ul>
+        <div class="links">
+          <a href="https://pypi.org/project/StepDistanceCalculator/" target="_blank" rel="noopener noreferrer">PyPI package →</a>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="research">
+      <h2>Research &amp; Publications</h2>
+      <h3>Hybrid Attendance System using Face Recognition and QR Code Technology</h3>
+      <p class="meta" style="font-family:var(--sans);font-size:0.82rem;color:var(--ink-soft);">Conference paper — published March 19, 2026</p>
+      <p>Amit co-authored and published a conference paper describing a hybrid attendance system that combines facial recognition for automated identification with QR-code scanning for flexible, accurate verification. The hybrid approach was designed to address limitations of traditional attendance systems by improving reliability, reducing proxy attendance, and enabling real-time data tracking. Developing the system involved computer vision, image processing, and system integration, aimed at a solution that is practical and scalable for educational institutions and organizations.</p>
+
+      <h3>Areas of Expertise</h3>
+      <ul class="plain-list">
+        <li>Operating systems and kernel development</li>
+        <li>Systems programming and computer architecture</li>
+        <li>Machine learning and MLOps</li>
+        <li>DevOps, containerization, and CI/CD automation</li>
+        <li>Computer networks and network stack implementation</li>
+        <li>Blockchain</li>
+      </ul>
+
+      <h3>Current Focus</h3>
+      <p>Amit's current focus is on deepening his machine learning and MLOps skill set — particularly Docker, Kubernetes, CI/CD, and advanced configuration management — while continuing to build production-oriented open-source software, including his computer-vision threat-detection framework and Python package releases.</p>
+
+      <h3>Career Objective</h3>
+      <p>To secure a role as a Software Engineer, Systems Software Engineer, Operating Systems Engineer, DevOps Engineer, or MLOps Engineer, where he can contribute to impactful projects and continue growing alongside experienced engineers, while completing his B.Tech in 2027.</p>
+
+      <h3>Future Goals</h3>
+      <p>To continue building production-ready AI systems and reliable deployment pipelines, deepen his expertise across the full stack "from the kernel to the cloud," and grow into a professional MLOps or systems engineering role following graduation.</p>
+
+      <h3>Professional Philosophy</h3>
+      <p>Amit describes his guiding belief as learning by building: treating every project as an opportunity to deepen technical knowledge, solve real-world problems, and create software with genuine impact.</p>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <p>No certifications were listed in the available source material.</p>
+    </section>
+
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <ul class="plain-list">
+        <li>Authored and published a conference paper on a hybrid facial-recognition and QR-code attendance system (March 2026).</li>
+        <li>Designed and built MyKernel, a from-scratch 64-bit x86_64 operating system kernel with a complete network stack, filesystem, and driver layer, released publicly under the MIT license (latest release v1.0.6).</li>
+        <li>Published two open-source Python packages to PyPI: <em>threatvision-ai</em> and <em>StepDistanceCalculator</em>.</li>
+        <li>Built and released Searcher Browser, a cross-platform desktop browser with an integrated AI assistant, reaching release v1.4.0.</li>
+      </ul>
+      <p>No formal awards or competition results were listed in the available source material.</p>
+    </section>
+
+    <section id="opensource">
+      <h2>Open Source Contributions</h2>
+      <p>Amit maintains a public GitHub profile under the username <strong>Amit123103</strong> and has released several independent open-source projects:</p>
+      <table class="plain">
+        <tr><th>Project</th><th>Type</th><th>Link</th></tr>
+        <tr><td>MyKernel (Basic_kernel)</td><td>OS kernel, MIT licensed</td><td><a href="https://github.com/Amit123103/Basic_kernel" target="_blank" rel="noopener noreferrer">GitHub</a></td></tr>
+        <tr><td>Searcher Browser</td><td>Desktop application (v1.4.0)</td><td><a href="https://github.com/Amit123103/Searcher_browser/releases/tag/v1.4.0" target="_blank" rel="noopener noreferrer">GitHub Release</a></td></tr>
+        <tr><td>threatvision-ai</td><td>Python package</td><td><a href="https://pypi.org/project/threatvision-ai/" target="_blank" rel="noopener noreferrer">PyPI</a></td></tr>
+        <tr><td>StepDistanceCalculator</td><td>Python package</td><td><a href="https://pypi.org/project/StepDistanceCalculator/" target="_blank" rel="noopener noreferrer">PyPI</a></td></tr>
+        <tr><td>SmartPortfolio</td><td>Personal portfolio site</td><td><a href="https://amit123103.github.io/SmartPortfolio/" target="_blank" rel="noopener noreferrer">Live site</a></td></tr>
+      </table>
+      <p>All of the above are published under open licensing (MyKernel is explicitly MIT licensed) and are available for public use, inspection, and contribution.</p>
+    </section>
+
+    <section id="technologies">
+      <h2>Technologies</h2>
+      <table class="plain">
+        <tr><th>Languages</th><td>C, C++, Python, NASM Assembly, Shell</td></tr>
+        <tr><th>Systems &amp; OS</th><td>Multiboot2, GRUB2, QEMU, Linux, x86_64 architecture</td></tr>
+        <tr><th>Machine Learning</th><td>Object detection, multi-object tracking, pose estimation, CNN/ViT-based architectures (applied via ThreatVision AI)</td></tr>
+        <tr><th>MLOps &amp; DevOps</th><td>Docker, Kubernetes, CI/CD, advanced configuration management</td></tr>
+        <tr><th>Networking</th><td>Ethernet, ARP, IPv4, ICMP, UDP, TCP, DHCP</td></tr>
+        <tr><th>Application Frameworks</th><td>PyQt6, PyQt6-WebEngine, Matplotlib</td></tr>
+        <tr><th>Data &amp; Packaging</th><td>SQLite, JSON, PyInstaller, PyPI packaging</td></tr>
+        <tr><th>Blockchain</th><td>Decentralized systems concepts</td></tr>
+        <tr><th>Tooling</th><td>Git, GitHub, GitHub Releases</td></tr>
+      </table>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><span class="k">Portfolio</span> <a href="https://amit123103.github.io/SmartPortfolio/" target="_blank" rel="noopener noreferrer">amit123103.github.io/SmartPortfolio</a></li>
+        <li><span class="k">GitHub</span> <a href="https://github.com/Amit123103" target="_blank" rel="noopener noreferrer">github.com/Amit123103</a></li>
+        <li><span class="k">LinkedIn</span> <a href="https://www.linkedin.com/in/amit-akhil/" target="_blank" rel="noopener noreferrer">linkedin.com/in/amit-akhil</a></li>
+        <li><span class="k">Email</span> Not listed in the available source material.</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn" href="https://amit123103.github.io/SmartPortfolio/" target="_blank" rel="noopener noreferrer">Visit Portfolio</a>
+        <a class="btn" href="https://www.linkedin.com/in/amit-akhil/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+      </div>
+      <div class="note">A downloadable résumé was not included in the source material, so no résumé link is provided here. Once a résumé file is available, a download button can be added to this section.</div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  © 2026 Amit Kumar. All rights reserved.
+</footer>
+
+<script>
+  // Highlight active TOC entry on scroll
+  const sections = document.querySelectorAll('main section[id]');
+  const tocLinks = document.querySelectorAll('nav.toc a');
+  const setActive = () => {
+    let current = sections[0]?.id;
+    const scrollY = window.scrollY + 100;
+    sections.forEach(sec => {
+      if (sec.offsetTop <= scrollY) current = sec.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  };
+  document.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+</script>
+
 </body>
 </html>
