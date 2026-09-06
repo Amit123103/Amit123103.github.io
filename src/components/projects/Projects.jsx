@@ -18,7 +18,7 @@ import imageFinderImg from '../../assets/projects/image_finder_img_1783172881586
 import internhubImg from '../../assets/projects/internhub_img_1783172892144.png';
 import chromeExtImg from '../../assets/projects/chrome_ext_img_1783172902208.png';
 import visionGuardImg from '../../assets/projects/vision_guard_img_1783172912537.png';
-import futureAiImg from '../../assets/projects/futuREDACTED_RESEND_API_KEY.png';
+import futureAiImg from '../../assets/projects/future_ai_img_1783172925481.png';
 import faceVoiceAuthImg from '../../assets/projects/face_voice_auth_img_1783172937084.png';
 import devopsImg from '../../assets/projects/devops_img_1783172948129.png';
 import aiopsImg from '../../assets/projects/aiops_img_1783172959643.png';
@@ -228,7 +228,7 @@ export const projectsData = [
         details: 'Implements a closed-loop Observe -> Detect -> Decide -> Act -> Learn architecture using Isolation Forests for anomaly detection, NLP for logs.',
         date: 'May 2026',
         image: aiopsImg,
-        githubLink: 'https://github.com/Amit123103/AIOps_Self-Healing_InfrastructuREDACTED_RESEND_API_KEY',
+        githubLink: 'https://github.com/Amit123103/AIOps_Self-Healing_Infrastructure',
         liveLink: '',
         techStack: ['Kubernetes', 'Elasticsearch', 'TensorFlow', 'Grafana', 'Python'],
         category: 'Data Science',
